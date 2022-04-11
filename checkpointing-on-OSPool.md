@@ -11,7 +11,7 @@ Checkpointing is a technique that provides fault tolerance for a user’s analys
 
 This section is about jobs capable of periodically saving checkpoint information, and how to make HTCondor store that information safely, in case it’s needed to continue the job on another machine or at a later time.
 
-There are two types of checkpointing: exit driven and eviction driven. In a vast majority of cases, exit driven checkpointing is preferred over eviction driven checkpointing. Therefore, this guide will focus on how to utilize exit driven checkpointing for your analysis. 
+There are two types of checkpointing: **exit driven** and **eviction driven**. In a vast majority of cases, **exit driven checkpointing** is preferred over **eviction driven checkpointing**. Therefore, this guide will focus on how to utilize exit driven checkpointing for your analysis. 
 
 Note that not all software, programs, or code are capable of creating checkpoint files and knowing how to resume from them. Consult the manual for your software or program to determine if it supports checkpointing features. Some manuals will refer this ability as "checkpoint" features, as the ability to "resume" mid-analysis if a job is interrupted, or as "checkpoint/restart" capabilities. Contact a Research Computing Facilitator if you would like help determining if your software, program, or code is able to checkpoint. 
 
@@ -20,7 +20,7 @@ Note that not all software, programs, or code are capable of creating checkpoint
 
 Checkpointing allows a job to automatically resume from approximately where it left off instead of having to start over if interrupted. This behavior is advantageous for jobs limited by a maximum runtime policy. It is also advantageous for jobs submitted to backfill resources with no runtime guarantee (i.e. jobs on the OSPool) where the compute resources may also be more prone to hardware or networking failures.
 
-For example, checkpointing jobs that are limited by a runtime policy can enable HTCondor to exit a job and automatically requeue it to avoid hitting the maximum runtime limit. By using checkpointing, jobs circumvent hitting the maximum runtime limit and can run for extended periods of time until the completion of the analysis. This behavior avoids costly setbacks due that may be caused by loosing results mid-way through an analysis due to hitting a runtime limit. 
+For example, checkpointing jobs that are limited by a runtime policy can enable HTCondor to exit a job and automatically requeue it to avoid hitting the maximum runtime limit. By using checkpointing, jobs circumvent hitting the maximum runtime limit and can run for extended periods of time until the completion of the analysis. This behavior avoids costly setbacks that may be caused by loosing results mid-way through an analysis due to hitting a runtime limit. 
 
 # Process of Exit Driven Checkpointing
 
@@ -131,7 +131,7 @@ exit $timeout_exit_status
 
 ```
 
-The ideal timeout frequency for a job is every 1-5 hours with a maximum of 10 hours. For jobs that checkpoint and timeout in under an hour, it is possible that a job may spend more time with checkpointing procedures than moving forward with the analysis. After 10 hours, the likelyhood of a job being inturrupted on the OSPool is higher. 
+The ideal timeout frequency for a job is every 1-5 hours with a maximum of 10 hours. For jobs that checkpoint and timeout in under an hour, it is possible that a job may spend more time with checkpointing procedures than moving forward with the analysis. After 10 hours, the likelihood of a job being inturrupted on the OSPool is higher. 
 
 
 # Checking the Progress of Checkpointing Jobs
